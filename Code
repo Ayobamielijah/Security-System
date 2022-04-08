@@ -1,0 +1,63 @@
+import time
+import pyttsx3
+engine = pyttsx3.init()
+def speak(engine, text):
+    print(text)
+    engine.say(text)
+    engine.runAndWait()
+
+    return engine
+name1 = "Bosley"
+name2 = "Bosley 2"
+name3 = "Bosley 3"
+name4 = "Sarge"
+
+def password():
+    speak(engine, "Enter name")
+    nameone = input()
+    if nameone == name1:
+        speak(engine, f"Enter your password {name1}")
+        password = input()
+        while password != "SAGE22":
+            speak(engine, "Please wait while I confirm your Identity....")
+            time.sleep(3)
+            speak(engine,f"Incorrect password {name1}, try again")
+            password = input()
+        speak(engine, "Please wait while I confirm your Identity....")
+        time.sleep(3)
+        speak(engine, f"Welcome {name1}")
+    elif nameone == name2:
+        speak(engine, f"Enter your password {name2}")
+        password2 = input()
+        while password2 != "Sage21":
+            speak(engine, f"Incorrect password {name2}, try again")
+            password2 = input()
+        speak(engine, "Please wait while I confirm your Identity....")
+        time.sleep(3)
+        speak(engine, f"Welcome {name2}")
+    elif nameone == name3:
+        speak(engine, f"Enter your password {name3}")
+        password3 = input()
+        while password3 != "sage20":
+            speak(engine, f"Incorrect password {name3}, try again")
+            password3 = input()
+        speak(engine, "Please wait while I confirm your Identity....")
+        time.sleep(3)
+        speak(engine, f"Welcome {name3}")
+    else:
+        speak(engine, f"Enter your password {name4}")
+        password4 = input()
+        while password4 != "sage":
+            speak(engine, f"Incorrect password {name4}, try again")
+            password4 = input()
+        speak(engine, "Please wait while I confirm your Identity....")
+        time.sleep(3)
+        speak(engine, f"Welcome {name4}")
+
+password()
+speak(engine, "Another user sign in?")
+Startover = input().lower()
+while Startover != "no":
+    password()
+
+speak(engine, "Thank you")
